@@ -157,3 +157,38 @@ const startServer = async () => {
 };
 
 startServer();
+// أضف هذه الأسطر إلى server.js
+
+const cronJobs = require('./services/cronJobs');
+const googleSheets = require('./services/googleSheetsService');
+const blockchainService = require('./services/blockchainService');
+
+// ... بعد تعريف app وقبل تشغيل الخادم
+
+// تهيئة التكاملات
+const initializeIntegrations = async () => {
+    console.log('🔧 تهيئة التكاملات الخارجية...');
+    
+    // Google Sheets
+    await googleSheets.initialize();
+    
+    // Blockchain (سيتم تفعيله لاحقاً عند وصول 100,000 مستخدم)
+    if (process.env.BLOCKCHAIN_ENABLED === 'true') {
+        await blockchainService.initialize(process.env.BLOCKCHAIN_NETWORK);
+    }
+    
+    // المهام المجدولة
+    cronJobs.start();
+    
+    console.log('✅ تم تهيئة جميع التكاملات');
+};
+
+// استدعاء التهيئة
+initializeIntegrations();
+
+// عند إيقاف الخادم
+process.on('SIGTERM', () => {
+    console.log('🛑 إيقاف الخادم...');
+    cronJobs.stop();
+    process.exit(0);
+});

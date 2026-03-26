@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="theme-color" content="#0a3d62" />
+    
+    <title>إمزتت - منصة الاستطلاعات المدفوعة والاقتصاد الرقمي</title>
+    <meta name="description" content="أول منصة ليبية للاستطلاعات المدفوعة. شارك برأيك واحصل على مكافآت، واكسب نقاطاً، وحوّلها إلى عملة رقمية." />
+    <meta name="keywords" content="إمزتت, استطلاعات مدفوعة, ليبيا, عملة رقمية, مكافآت, استبيانات" />
+    <meta name="author" content="منصة إمزتت" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://imzatit.com/" />
+    <meta property="og:title" content="إمزتت - منصة الاستطلاعات المدفوعة" />
+    <meta property="og:description" content="شارك برأيك واحصل على مكافآت. أول منصة ليبية للاستطلاعات المدفوعة." />
+    <meta property="og:image" content="https://imzatit.com/assets/images/og-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://imzatit.com/" />
+    <meta property="twitter:title" content="إمزتت - منصة الاستطلاعات المدفوعة" />
+    <meta property="twitter:description" content="شارك برأيك واحصل على مكافآت. أول منصة ليبية للاستطلاعات المدفوعة." />
+    <meta property="twitter:image" content="https://imzatit.com/assets/images/og-image.jpg" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- Styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #0a192f 0%, #0a3d62 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        #root {
+            min-height: 100vh;
+        }
+        
+        /* شاشة التحميل */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a192f, #0a3d62);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-logo {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #d4af37, #1e90ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top-color: #d4af37;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            margin-top: 1rem;
+            color: rgba(255,255,255,0.7);
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="loading-screen" id="loadingScreen">
+            <div class="loading-logo">إمزتت</div>
+            <div class="loading-spinner"></div>
+            <div class="loading-text">جاري تحميل المنصة...</div>
+        </div>
+    </div>
+    
+    <script>
+        // إخفاء شاشة التحميل بعد تحميل التطبيق
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loadingScreen');
+                if (loader) {
+                    loader.style.opacity = '0';
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500);
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

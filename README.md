@@ -48,32 +48,5 @@ Imzatit The Intelligence Engine
 
 ---
 
-## 🚀 البدء السريع
-
-### المتطلبات
-- Node.js 18+
-- MySQL 8+
-- npm / yarn
-
-### التثبيت
-
-```bash
-# 1. استنساخ المشروع
-git clone https://github.com/imzatit/imzatit-platform.git
-cd imzatit-platform
-
-# 2. تثبيت التبعيات
-npm install
-
-# 3. إعداد البيئة
-cp .env.example .env
-# قم بتعديل ملف .env
-
-# 4. إنشاء قاعدة البيانات
-mysql -u root -p < backend/models/database.sql
-
-# 5. تشغيل الخادم
-npm start
-
 # 6. للتطوير
 npm run dev
